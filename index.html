@@ -8,74 +8,99 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: #0b0b0b;
+  background: #050816;
   color: white;
 }
 
 /* NAV */
 nav {
-  background: #111;
+  background: #0a0f2c;
   padding: 15px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  border-bottom: 2px solid #00ffcc;
+  gap: 25px;
+  border-bottom: 2px solid #00aaff;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
 nav a:hover {
-  color: #00ffcc;
-}
-
-/* SECCIONES */
-.section {
-  display: none;
-  padding: 40px;
-}
-
-.active {
-  display: block;
+  color: #00aaff;
 }
 
 /* LOGO */
 .logo {
   text-align: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .logo img {
   max-width: 300px;
 }
 
+/* SECCIONES */
+.section {
+  display: none;
+  padding: 30px;
+}
+
+.active {
+  display: block;
+}
+
 /* TARJETAS */
 .card {
-  background: #1a1a1a;
+  background: #0d1338;
   padding: 20px;
-  margin: 20px 0;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 1000px;
+  box-shadow: 0 0 20px rgba(0,170,255,0.2);
+}
+
+/* IMAGEN FULL */
+.fullimg {
+  width: 100%;
   border-radius: 10px;
+}
+
+/* BOTONES */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: #00aaff;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background: #0088cc;
 }
 
 /* SUBMENU */
 .submenu {
-  margin-top: 20px;
+  text-align: center;
 }
 
 .submenu button {
   margin: 5px;
   padding: 10px;
-  background: #222;
+  background: #111;
   color: white;
-  border: none;
+  border: 1px solid #00aaff;
   cursor: pointer;
 }
 
 .submenu button:hover {
-  background: #00ffcc;
+  background: #00aaff;
   color: black;
 }
 </style>
@@ -98,61 +123,84 @@ nav a:hover {
 
 <!-- HOME -->
 <div id="home" class="section active">
-  <h1>Noticias</h1>
   <div class="card">
-    Inicio del campeonato BTCC en Donington Park.
+    <h1>BTCC Solosimracing</h1>
+    <p>Bienvenido a la comunidad Solosimracing.</p>
+  </div>
+
+  <div class="card">
+    <img src="presentacion.jpg" class="fullimg">
   </div>
 </div>
 
 <!-- CALENDARIO -->
 <div id="calendario" class="section">
-  <h1>Calendario</h1>
   <div class="card">
-    Aquí pondrás las carreras (puedes ir editando manualmente o luego metemos calendario real).
+    <h1>Calendario</h1>
+    <img src="calendario.jpg" class="fullimg">
   </div>
 </div>
 
 <!-- CONTENIDO -->
 <div id="contenido" class="section">
-  <h1>Contenido</h1>
   <div class="card">
-    <p>🔗 TeamSpeak</p>
-    <p>🔗 Discord</p>
-    <p>🔗 Servidor rFactor 2</p>
+    <h1>Contenido</h1>
+
+    <a class="btn" href="https://solosimrf2.dadusma.es/tracks" target="_blank">Hotlaps</a>
+    <a class="btn" href="#">Discord</a>
+    <a class="btn" href="#">TeamSpeak</a>
   </div>
 </div>
 
 <!-- CAMPEONATOS -->
 <div id="campeonatos" class="section">
-  <h1>Campeonato activo</h1>
+  <div class="card">
+    <h1>BTCC</h1>
 
-  <div class="submenu">
-    <button onclick="sub('normas')">Normativa</button>
-    <button onclick="sub('inscritos')">Inscritos</button>
-    <button onclick="sub('resultados')">Resultados</button>
-    <button onclick="sub('clasificacion')">Clasificación</button>
+    <div class="submenu">
+      <button onclick="sub('normas')">Normativa</button>
+      <button onclick="sub('inscritos')">Inscritos</button>
+      <button onclick="sub('resultados')">Resultados</button>
+      <button onclick="sub('clasificacion')">Clasificación</button>
+    </div>
+
+    <div id="normas">Pendiente añadir normativa</div>
+
+    <div id="inscritos" style="display:none;">
+      <img src="inscritos.jpg" class="fullimg">
+    </div>
+
+    <div id="resultados" style="display:none;">
+      <a class="btn" href="https://solosimrf2.dadusma.es/championships/championship?cid=17" target="_blank">
+        Ver resultados completos
+      </a>
+    </div>
+
+    <div id="clasificacion" style="display:none;">
+      Próximamente clasificación automática
+    </div>
+
   </div>
-
-  <div id="normas" class="card">Normativa del campeonato</div>
-  <div id="inscritos" class="card" style="display:none;">Lista de inscritos</div>
-  <div id="resultados" class="card" style="display:none;">Resultados</div>
-  <div id="clasificacion" class="card" style="display:none;">Clasificación</div>
 </div>
 
 <!-- RETRANSMISIONES -->
 <div id="retransmisiones" class="section">
-  <h1>Retransmisiones</h1>
   <div class="card">
-    <p>🎥 Twitch: ralffitotv</p>
-    <p>▶ YouTube: Solosimracing</p>
+    <h1>Retransmisiones</h1>
+
+    <a class="btn" href="https://www.twitch.tv/search?term=ralffito" target="_blank">Twitch</a>
+    <a class="btn" href="https://www.youtube.com/@solosimracing-b7n" target="_blank">YouTube</a>
   </div>
 </div>
 
 <!-- HOTLAPS -->
 <div id="hotlaps" class="section">
-  <h1>Hotlaps</h1>
   <div class="card">
-    Enlace directo a hotlaps
+    <h1>Hotlaps</h1>
+
+    <a class="btn" href="https://solosimrf2.dadusma.es/tracks" target="_blank">
+      Ver Hotlaps
+    </a>
   </div>
 </div>
 
@@ -163,7 +211,7 @@ function show(section) {
 }
 
 function sub(section) {
-  document.querySelectorAll('#campeonatos .card').forEach(c => c.style.display = 'none');
+  document.querySelectorAll('#campeonatos div[id]').forEach(d => d.style.display = 'none');
   document.getElementById(section).style.display = 'block';
 }
 </script>

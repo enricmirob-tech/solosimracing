@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Solosimracing</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b0b0b;
+  color: white;
+}
+
+/* NAV */
+nav {
+  background: #111;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border-bottom: 2px solid #00ffcc;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #00ffcc;
+}
+
+/* SECCIONES */
+.section {
+  display: none;
+  padding: 40px;
+}
+
+.active {
+  display: block;
+}
+
+/* LOGO */
+.logo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo img {
+  max-width: 300px;
+}
+
+/* TARJETAS */
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* SUBMENU */
+.submenu {
+  margin-top: 20px;
+}
+
+.submenu button {
+  margin: 5px;
+  padding: 10px;
+  background: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submenu button:hover {
+  background: #00ffcc;
+  color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo">
+  <img src="logo.png">
+</div>
+
+<nav>
+  <a onclick="show('home')">Home</a>
+  <a onclick="show('calendario')">Calendario</a>
+  <a onclick="show('contenido')">Contenido</a>
+  <a onclick="show('campeonatos')">Campeonatos</a>
+  <a onclick="show('retransmisiones')">Retransmisiones</a>
+  <a onclick="show('hotlaps')">Hotlaps</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+  <h1>Noticias</h1>
+  <div class="card">
+    Inicio del campeonato BTCC en Donington Park.
+  </div>
+</div>
+
+<!-- CALENDARIO -->
+<div id="calendario" class="section">
+  <h1>Calendario</h1>
+  <div class="card">
+    Aquí pondrás las carreras (puedes ir editando manualmente o luego metemos calendario real).
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido" class="section">
+  <h1>Contenido</h1>
+  <div class="card">
+    <p>🔗 TeamSpeak</p>
+    <p>🔗 Discord</p>
+    <p>🔗 Servidor rFactor 2</p>
+  </div>
+</div>
+
+<!-- CAMPEONATOS -->
+<div id="campeonatos" class="section">
+  <h1>Campeonato activo</h1>
+
+  <div class="submenu">
+    <button onclick="sub('normas')">Normativa</button>
+    <button onclick="sub('inscritos')">Inscritos</button>
+    <button onclick="sub('resultados')">Resultados</button>
+    <button onclick="sub('clasificacion')">Clasificación</button>
+  </div>
+
+  <div id="normas" class="card">Normativa del campeonato</div>
+  <div id="inscritos" class="card" style="display:none;">Lista de inscritos</div>
+  <div id="resultados" class="card" style="display:none;">Resultados</div>
+  <div id="clasificacion" class="card" style="display:none;">Clasificación</div>
+</div>
+
+<!-- RETRANSMISIONES -->
+<div id="retransmisiones" class="section">
+  <h1>Retransmisiones</h1>
+  <div class="card">
+    <p>🎥 Twitch: ralffitotv</p>
+    <p>▶ YouTube: Solosimracing</p>
+  </div>
+</div>
+
+<!-- HOTLAPS -->
+<div id="hotlaps" class="section">
+  <h1>Hotlaps</h1>
+  <div class="card">
+    Enlace directo a hotlaps
+  </div>
+</div>
+
+<script>
+function show(section) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(section).classList.add('active');
+}
+
+function sub(section) {
+  document.querySelectorAll('#campeonatos .card').forEach(c => c.style.display = 'none');
+  document.getElementById(section).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
